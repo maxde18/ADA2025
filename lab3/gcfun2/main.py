@@ -17,10 +17,15 @@ def build_diabetes_predictor(cloud_event):
       See https://cloud.google.com/functions/docs/tutorials/storage
     """
 
-    data = cloud_event.data
+    #Depending on the trigger type you need to look at the documentation to see how it works
 
+    data = cloud_event.data #extract a python dictionary containing the metadata sent int the cloud event object
+
+
+    #Extract the id and type of the event for logging
     event_id = cloud_event["id"]
     event_type = cloud_event["type"]
+
 
     bucket_name = data["bucket"]
     file_name = data["name"]
@@ -36,6 +41,7 @@ def build_diabetes_predictor(cloud_event):
     print(f"Created: {timeCreated}")
     print(f"Updated: {updated}")
 
+    #Extract environ vars
     project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
     model_bucket_name = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
     print('Project Id: {}'.format(project_id))

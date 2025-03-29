@@ -42,5 +42,5 @@ def callback(message):
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
-    create_subscription("your project id", "diabetes_res", "diabetes_res_sub")
-    pull_message(project="your project id", subscription="diabetes_res_sub")  # replace your project id
+    create_subscription("de2024-435320", "diabetes_res", "diabetes_res_sub")
+    pull_message(project="de2024-435320", subscription="diabetes_res_sub")  # replace your project id
